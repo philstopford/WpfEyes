@@ -19,8 +19,10 @@ namespace WPFeyes
             DragMove = true;
             MostTop = true;
             Color = "#FF606060";
+            eyePos = new EyePosition();
             eyePos.x = 100;
             eyePos.y = 100;
+            eyeSize = new EyeSize();
             eyeSize.Height = 100;
             eyeSize.Width = 100;
         }
