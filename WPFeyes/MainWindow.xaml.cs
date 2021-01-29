@@ -96,7 +96,7 @@ namespace WPFeyes
             canvas1.Margin = new Thickness(frame);
 
             BrushConverter conv = new BrushConverter();
-            SolidColorBrush brush = conv.ConvertFromString(appySettings.Color ) as SolidColorBrush;
+            SolidColorBrush brush = conv.ConvertFromString(appySettings.Color) as SolidColorBrush;
             // SolidColorBrush brush = new SolidColorBrush(settings.Color);
             mw.Background = brush;
 
@@ -192,19 +192,20 @@ namespace WPFeyes
             newP = mouseCom.getPooint();
             // Point currentPosition = PointToScreen(Mouse.GetPosition(canvas1));
 
-            if ( ! (newP.X == oldP.X && newP.Y == oldP.Y))
+            if (!(newP.X == oldP.X && newP.Y == oldP.Y))
             {
                 // MouseEventArgs ea = new MouseEventArgs();
                 // newPos_Handler.Invoke(newP, ea);
                 try
                 {
-                    Dispatcher.Invoke( (Action) (() =>
-                    {
-                        posLabel.Content = newP.X + " " + newP.Y;
-                    }));
+                    Dispatcher.Invoke((Action)(() =>
+                  {
+                      posLabel.Content = newP.X + " " + newP.Y;
+                  }));
                     calcPos();
                 }
-                catch(Exception ex) {
+                catch (Exception ex)
+                {
                     exNu++;
                     if (exNu > 1000)
                     {
@@ -223,7 +224,8 @@ namespace WPFeyes
             Point P1v = calcEye(Mx, My, 2f, 2f);
             Point P2v = calcEye(Mx, My, 7f, 2f);
 
-            Dispatcher.Invoke((Action)(() => {
+            Dispatcher.Invoke((Action)(() =>
+            {
                 Canvas.SetLeft(P1, P1v.X);
                 Canvas.SetTop(P1, P1v.Y);
                 Canvas.SetLeft(P2, P2v.X);
@@ -254,7 +256,7 @@ namespace WPFeyes
 
             if (Math.Abs(EMx) < unitX)
             {
-                if ( Math.Abs(EMy) < Math.Abs(unitY / unitX * Math.Sqrt(Math.Pow(unitX, 2) - EMx )) )
+                if (Math.Abs(EMy) < Math.Abs(unitY / unitX * Math.Sqrt(Math.Pow(unitX, 2) - EMx)))
                 {
                     EPx = EMx;
                     EPy = EMy;
@@ -403,7 +405,7 @@ namespace WPFeyes
         {
             MenuItem mi = (MenuItem)sender;
             String url = mi.Tag.ToString();
-            if (! String.IsNullOrEmpty(url))
+            if (!String.IsNullOrEmpty(url))
             {
                 Process proc = new Process();
                 proc.StartInfo.UseShellExecute = true;
@@ -487,7 +489,7 @@ namespace WPFeyes
             showGrip(mi.IsChecked);
             settings.ShowResizeGrip = mi.IsChecked;
         }
-        
+
         /*
         private void mw_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -557,6 +559,6 @@ namespace WPFeyes
         }
 
 
-}
+    }
 
 }

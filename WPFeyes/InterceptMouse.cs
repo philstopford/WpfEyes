@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Runtime.InteropServices;
-
-using System.Collections.Generic;
-using System.Text;
 using System.Diagnostics;
-using System.Windows;
+using System.Runtime.InteropServices;
 
 namespace WPFeyes
 {
@@ -55,7 +51,7 @@ namespace WPFeyes
                 p.X = hookStruct.pt.x;
                 p.Y = hookStruct.pt.y;
 
-               // Console.WriteLine(hookStruct.pt.x + ", " + hookStruct.pt.y);
+                // Console.WriteLine(hookStruct.pt.x + ", " + hookStruct.pt.y);
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
@@ -93,8 +89,8 @@ namespace WPFeyes
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr SetWindowsHookEx(
             int idHook,
-            LowLevelMouseProc lpfn, 
-            IntPtr hMod, 
+            LowLevelMouseProc lpfn,
+            IntPtr hMod,
             uint dwThreadId
             );
 
@@ -106,9 +102,9 @@ namespace WPFeyes
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern IntPtr CallNextHookEx(
-            IntPtr hhk, 
+            IntPtr hhk,
             int nCode,
-            IntPtr wParam, 
+            IntPtr wParam,
             IntPtr lParam
             );
 

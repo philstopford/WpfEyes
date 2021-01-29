@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
 using SIO = System.IO;
-using System.Windows;
-using System.Windows.Forms;
 
 namespace WPFeyes
 {
@@ -30,7 +24,7 @@ namespace WPFeyes
                 app.Run(window);
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 using (SIO.StreamWriter sw = SIO.File.AppendText(SIO.Path.Combine(SIO.Path.GetTempPath(), "wpfEyesLog.txt")))
                 {
@@ -42,7 +36,7 @@ namespace WPFeyes
                     sw.WriteLine(DateTime.Now.ToString("s") + "Inner: " + ex.InnerException.Message);
                     sw.WriteLine(DateTime.Now.ToString("s") + "Inner: " + ex.InnerException.StackTrace);
                 }
-                
+
                 ;
             }
         }
